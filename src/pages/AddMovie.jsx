@@ -240,10 +240,13 @@ function AddMovie() {
               <img
                 src={
                   movie.posterUrl ||
-                  "https://via.placeholder.com/300x420?text=Movie+Poster"
+                  "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=300&h=420&fit=crop"
                 }
                 alt="Movie Preview"
-                className="w-full h-80 object-cover"
+                className="w-full h-80 object-cover bg-gray-800"
+                onError={(e) => {
+                  e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="420"%3E%3Crect fill="%23374151" width="300" height="420"/%3E%3Ctext x="50%" y="50%" font-size="16" fill="%239CA3AF" text-anchor="middle" dy=".3em"%3ENo Image%3C/text%3E%3C/svg%3E';
+                }}
               />
 
               <div className="p-5">
